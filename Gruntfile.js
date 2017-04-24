@@ -46,7 +46,10 @@ module.exports = function(grunt) {
       options: {},
       // environment variables - see https://github.com/jsoverson/grunt-env for more information
       local: {
+        JWT_SALT: "If you want to keep a secret, you must also hide it from yourself.",
         FH_USE_LOCAL_DB: true,
+        DEBUG_LEVEL: 'silly',
+        fhbot_verification_token: 'localdevelopment',
         FH_SERVICE_MAP: function() {
           /*
            * Define the mappings for your services here - for local development.
@@ -55,6 +58,7 @@ module.exports = function(grunt) {
            * or a remote instance.
            */
           var serviceMap = {
+            'localdevelopment': 'http://localhost:8001',
             'SERVICE_GUID_1': 'http://127.0.0.1:8010',
             'SERVICE_GUID_2': 'https://host-and-path-to-service'
           };
